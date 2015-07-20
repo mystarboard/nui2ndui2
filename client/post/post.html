@@ -1,0 +1,38 @@
+<template name="post">
+	<div class="media">
+		<div class="media-left">
+			<a href="">
+				<img class="media-object" src="http://www.fillmurray.com/g/64/64" alt="">
+			</a>
+		</div>
+		<div class="media-body">
+			<h5 class="media-heading">Bill</h5>
+			<p>Zombies are here!</p>
+
+			<div class="media">
+				{{#if likeCount}} 
+					<span class="badge badge-success">{{likeCount}}</span> People like this 
+				{{/if}}
+				<h4 class="media-heading">
+					<a href="" class="likebtn muted"><small>Like</small></a>
+				</h4>
+				<ul class="list-unstyled">
+					{{> postComment }}
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+
+<template name="postComment">
+	<li class="well">
+		<a href="/user" class="pull-left">
+			<img src="http://www.fillmurray.com/g/32/32" alt="" width="30px" class="img-rounded">
+		</a>
+		<h5 class="commentUser">Louis</h5>
+
+		<p class="muted commentText">No sh*t sherlock!</p>
+	</li>
+</template>
