@@ -1,4 +1,9 @@
-
+Template.addGig.onRendered(function() {
+    this.$('.datetimepicker4').datetimepicker({
+    	sideBySide: true,
+    	format: "dddd, Do MMMM YYYY, h:mm a",
+    });
+});
 
 Template.addGig.events({
 	'click #postGigButton' : function(event, tmpl) {

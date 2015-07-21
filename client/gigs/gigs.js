@@ -4,6 +4,8 @@ Template.gigs.rendered = function() {
 	});
 }
 
+
+
 Template.gigs.helpers({
 	gigs: function () {
 		return Gigs.find({}, { sort: {date: -1} });
