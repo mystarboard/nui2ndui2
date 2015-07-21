@@ -14,3 +14,13 @@ Router.route('/home', function () {
 Router.route('/messages', function () {
   this.render('messages')
 });
+
+Router.route('/gigs', function () {
+  this.render('gigs'),
+  this.layout('gigsLayout')
+});
+
+Router.route('/addGig', function () {
+  this.render('addGig'),
+  this.layout('gigsLayout')
+});

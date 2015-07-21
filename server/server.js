@@ -6,6 +6,11 @@ Meteor.publish("likes", function(postid) {
 	return Likes.find({});
 });
 
+Meteor.publish("gigs", function(postid) {
+	return Gigs.find({});
+});
+
+
 Meteor.methods({
 	// {text:'', owner:'', date:'', parent:''}
 	'addPost' : function(options) {
@@ -39,5 +44,23 @@ Meteor.methods({
 		Likes.remove(like);
 	},
 
+
+	'addGig' : function(options) {
+		var gig = {
+			submittedBy: Meteor.userId(),
+			name: options.name,
+			date: new Date(),
+			location: options.location,
+			organizer: options.organizer,
+			description: options.description,
+		}
+		Gigs.insert(gig);
+	},
+	'removeGig' : function(id) {
+		Gigs.remove({_id:id});
+	},
+	'removeAllGigs' : function() {
+		Gigs.remove({});
+	},
 
 });

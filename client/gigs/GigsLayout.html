@@ -1,0 +1,19 @@
+<template name="gigsLayout">
+	{{> navigation}}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="list-inline">
+					<li><a href="/addGig">Add a gig</a></li>
+					<li><a href="">|</a></li>
+					<li><a href="">Metal</a></li>
+					<li><a href="">Punk</a></li>
+					<li><a href="">Post Rock</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			{{> yield}}
+		</div>
+	</div>
+</template>
