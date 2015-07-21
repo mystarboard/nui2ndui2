@@ -4,6 +4,10 @@ Router.configure({
 
 
 Router.route('/', function () {
+  this.render('splash')
+});
+
+Router.route('/home', function () {
   this.render('home')
 });
 

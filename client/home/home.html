@@ -4,15 +4,8 @@
 		<input class="form-control posttext" type="text" name="posttext" placeholder="Whats on your mind?" value="" id="posttext" >
 	</div>
 	<ul class="list-unstyled" id="postList">
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
-		<li>{{> post }}</li>
+		{{#each posts}}
+			<li>{{> post }}</li>
+		{{/each}}
 	</ul>
 </template>

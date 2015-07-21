@@ -1,13 +1,13 @@
 <template name="post">
-	<div class="media">
+	<div class="media post-box">
 		<div class="media-left">
 			<a href="">
-				<img class="media-object" src="http://www.fillmurray.com/g/64/64" alt="">
+				<img class="media-object profilePic" src="{{owner}}.jpg" alt="">
 			</a>
 		</div>
 		<div class="media-body">
-			<h5 class="media-heading">Bill</h5>
-			<p>Zombies are here!</p>
+			<h5 class="media-heading">{{owner}}</h5>
+			<p>{{text}}</p>
 
 			<div class="media">
 				{{#if likeCount}} 
@@ -17,8 +17,11 @@
 					<a href="" class="likebtn muted"><small>Like</small></a>
 				</h4>
 				<ul class="list-unstyled">
-					{{> postComment }}
+					{{#each postComments}}
+						{{> postComment }}
+					{{/each}}
 				</ul>
+				<input type="text" name="comment" value="" placeholder="Write a comment..." class="comment form-control" id="comment">
 			</div>
 
 		</div>
@@ -28,11 +31,27 @@
 
 <template name="postComment">
 	<li class="well">
-		<a href="/user" class="pull-left">
-			<img src="http://www.fillmurray.com/g/32/32" alt="" width="30px" class="img-rounded">
-		</a>
-		<h5 class="commentUser">Louis</h5>
-
-		<p class="muted commentText">No sh*t sherlock!</p>
+		<div class="media">
+			<div class="media-left">
+				<a href="/user" class="pull-left">
+					<img src="{{owner}}.jpg" alt="" class="profilePic">
+				</a>
+			</div>
+			<div class="media-body">
+				<div class="media-heading">
+					<h5 class="commentUser">{{owner}}</h5>
+					<p class="muted commentText">{{text}}</p>
+					<div class="media">
+						{{#if likeCount}} 
+						<span class="badge badge-success">{{likeCount}}</span> People like this 
+						{{/if}}
+					<h4 class="media-heading">
+						<a href="" class="likebtn muted"><small>Like</small></a>
+					</h4>
+					</div>
+				</div>
+			</div>
+		</div>
 	</li>
 </template>
+

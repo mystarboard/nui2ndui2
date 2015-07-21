@@ -5,15 +5,18 @@ Template.home.rendered = function() {
 	});
 }
 
-Template.home.posts = function() {
-	return Posts.find({}, { sort: {date: -1} });
-}
+Template.home.helpers({
+ posts: function() {
+	return Posts.find({parent:null}, { sort: {date: -1} });
+ }
+}); 
 
 Template.home.events({
 	'keyup .posttext' : function(evt, tmpl){
 		if(evt.which === 13) {
 			var posttext = tmpl.find('.posttext').value;
-			Posts.insert({text:posttext, owner:Meteor.userId(), date:new Date(), parent:null});
+			var options = {text:posttext, parent:null};
+			Meteor.call('addPost', options);
 			$('.posttext').val("").select().focus();
 		}
 	}
