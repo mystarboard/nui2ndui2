@@ -24,3 +24,9 @@ Router.route('/addGig', function () {
   this.render('addGig'),
   this.layout('gigsLayout')
 });
+
+Router.route('/favoriteGigs', function () {
+  this.render('favoriteGigs')
+});
+
+

@@ -1,13 +1,17 @@
-Meteor.publish("posts", function(userid) {
+Meteor.publish("posts", function() {
 	return Posts.find({});
 });
 
-Meteor.publish("likes", function(postid) {
+Meteor.publish("likes", function() {
 	return Likes.find({});
 });
 
-Meteor.publish("gigs", function(postid) {
+Meteor.publish("gigs", function() {
 	return Gigs.find({});
+});
+
+Meteor.publish("favoriteGigs", function() {
+	return FavoriteGigs.find({});
 });
 
 
@@ -51,6 +55,8 @@ Meteor.methods({
 			submittedDate: new Date(),
 			name: options.name,
 			date: options.date,
+			displayDate: options.displayDate,
+			formattedDate: options.formattedDate,
 			location: options.location,
 			organizer: options.organizer,
 			description: options.description,
@@ -64,4 +70,21 @@ Meteor.methods({
 		Gigs.remove({});
 	},
 
+
+	'addFavoriteGig' : function(options) {
+		var favoriteGig = {
+			gigName: options.gigName,
+			favoriteeId: options.favoriteeId,
+		}
+		FavoriteGigs.insert(favoriteGig);
+	},
+	'removeFavoriteGig' : function(options) {
+		var favoriteGig = {
+			gigName: options.gigName,
+			favoriteeId: options.favoriteeId,
+		}
+		FavoriteGigs.remove(favoriteGig);
+	},
 });
+
+

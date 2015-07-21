@@ -9,11 +9,12 @@
 
 <template name="showGig">
 	<li><h3>{{name}}</h3></li>
-	<li>Date: {{date}}</li>
+	<li>Date: {{displayDate}}</li>
 	<li>Location: {{location}}</li>
 	<li>Organizer: {{organizer}}</li>
 	<li>{{description}}</li>
 	<li>Submitted by: {{submittedBy}}</li>
 	<li>Submitted on: {{submittedDate}}</li>
 	<br>
+	<button class="btn btn-primary" id="addToFavoriteGigs">Add to watchlist</button>
 </template>
