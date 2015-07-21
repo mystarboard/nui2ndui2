@@ -1,3 +1,19 @@
 <template name="gigs">
 	This is the gigs page
+	<ul class="list-unstyled">
+	{{#each gigs}}
+		{{> showGig}}
+	{{/each}}
+	</ul>
+</template>
+
+<template name="showGig">
+	<li><h3>{{name}}</h3></li>
+	<li>Date: {{date}}</li>
+	<li>Location: {{location}}</li>
+	<li>Organizer: {{organizer}}</li>
+	<li>{{description}}</li>
+	<li>Submitted by: {{submittedBy}}</li>
+	<li>Submitted on: {{submittedDate}}</li>
+	<br>
 </template>

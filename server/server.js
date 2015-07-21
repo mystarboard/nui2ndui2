@@ -48,8 +48,9 @@ Meteor.methods({
 	'addGig' : function(options) {
 		var gig = {
 			submittedBy: Meteor.userId(),
+			submittedDate: new Date(),
 			name: options.name,
-			date: new Date(),
+			date: options.date,
 			location: options.location,
 			organizer: options.organizer,
 			description: options.description,

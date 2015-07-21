@@ -1,8 +1,4 @@
-Template.addGig.rendered = function() {
-	Deps.autorun( function() {
-		Meteor.subscribe("gigs", Meteor.userId());
-	});
-}
+
 
 Template.addGig.events({
 	'click #postGigButton' : function(event, tmpl) {
