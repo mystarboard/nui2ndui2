@@ -4,7 +4,11 @@ Router.configure({
 
 
 Router.route('/', function () {
-  this.render('splash')
+  if (! Meteor.user()) {
+  	this.render('splash');
+  	} else {
+ 			 this.render('home');
+  	}
 });
 
 Router.route('/home', function () {
