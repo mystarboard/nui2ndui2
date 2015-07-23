@@ -19,10 +19,11 @@ Meteor.methods({
 	// {text:'', owner:'', date:'', parent:''}
 	'addPost' : function(options) {
 		var post = {
-			text:options.text,
-			owner:Meteor.userId(),
-			date:new Date(),
-			parent:options.parent
+			text: options.text,
+			ownerId: Meteor.userId(),
+			username: Meteor.user().username,
+			date: new Date(),
+			parent: options.parent
 		}
 		Posts.insert(post);
 	},
@@ -37,6 +38,8 @@ Meteor.methods({
 		var like = {
 			postId: options.postId,
 			likerId: options.likerId,
+			username: Meteor.user().username,
+			date: new Date(),
 		}
 		Likes.insert(like);
 	},
@@ -51,7 +54,8 @@ Meteor.methods({
 
 	'addGig' : function(options) {
 		var gig = {
-			submittedBy: Meteor.userId(),
+			submittedById: Meteor.userId(),
+			submitteedByUsername: Meteor.user().username,
 			submittedDate: new Date(),
 			name: options.name,
 			date: options.date,
@@ -75,6 +79,8 @@ Meteor.methods({
 		var favoriteGig = {
 			gigName: options.gigName,
 			favoriteeId: options.favoriteeId,
+			favoriteeUsername: Meteor.user().username,
+
 		}
 		FavoriteGigs.insert(favoriteGig);
 	},
@@ -82,6 +88,8 @@ Meteor.methods({
 		var favoriteGig = {
 			gigName: options.gigName,
 			favoriteeId: options.favoriteeId,
+			favoriteeusername: Meteor.user().username,
+
 		}
 		FavoriteGigs.remove(favoriteGig);
 	},

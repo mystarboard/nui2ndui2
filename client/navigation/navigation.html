@@ -38,6 +38,9 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/gigs">Gigs</a></li>
         <li><a href="/addGig">Add a Gig</a></li>
+        {{#if currentUser}}
+        <li><a href="/home">Hello @{{currentUser.username}}</a></li>
+        {{/if}}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
