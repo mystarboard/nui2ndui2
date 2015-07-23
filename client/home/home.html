@@ -1,11 +1,15 @@
 <template name="home">
-	<div class="well well-large">
-		<label for="posttext">Update Status</label>
+	<div class="chat-wrapper">
+		<label for="posttext"><span class="text-muted">Say something nice</span></label>
 		<input class="form-control posttext" type="text" name="posttext" placeholder="Whats on your mind?" value="" id="posttext" >
 	</div>
 	<ul class="list-unstyled" id="postList">
 		{{#each posts}}
 			<li>{{> post }}</li>
 		{{/each}}
+
+		{{#unless currentUser}}
+		<p>Please log in to post and see messages <a href="/">Login</a></p>
+		{{/unless}}
 	</ul>
 </template>

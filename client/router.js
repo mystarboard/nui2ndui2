@@ -6,6 +6,7 @@ Router.configure({
 Router.route('/', function () {
   if (! Meteor.user()) {
   	this.render('splash');
+    this.layout('splashLayout');
   	} else {
  			 this.render('home');
   	}
@@ -20,13 +21,11 @@ Router.route('/messages', function () {
 });
 
 Router.route('/gigs', function () {
-  this.render('gigs'),
-  this.layout('gigsLayout')
+  this.render('gigs')
 });
 
 Router.route('/addGig', function () {
-  this.render('addGig'),
-  this.layout('gigsLayout')
+  this.render('addGig')
 });
 
 Router.route('/favoriteGigs', function () {

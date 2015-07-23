@@ -6,9 +6,11 @@ Template.home.rendered = function() {
 }
 
 Template.home.helpers({
- posts: function() {
-	return Posts.find({parent:null}, { sort: {date: -1} });
- }
+	posts: function() {
+		return Posts.find({parent:null}, { 
+			sort: { date: -1 } 
+		});
+ 	}
 }); 
 
 Template.home.events({

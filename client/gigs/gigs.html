@@ -1,10 +1,14 @@
 <template name="gigs">
-	This is the gigs page
-	<ul class="list-unstyled">
-	{{#each gigs}}
-		{{> showGig}}
-	{{/each}}
-	</ul>
+	<div class="row">
+		<ul class="list-unstyled">
+			{{#each gigs}}
+			<div class="col-md-3">
+				{{> showGig}}
+			</div>
+			{{/each}}
+		</ul>
+	</div>
+
 </template>
 
 <template name="showGig">

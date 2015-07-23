@@ -1,5 +1,11 @@
 Meteor.publish("posts", function() {
-	return Posts.find({});
+	//publish messages just for logged in users
+	if (this.userId) {
+		return Posts.find({}, {
+			sort: { date: -1 },
+		});
+	}
+	this.ready();
 });
 
 Meteor.publish("likes", function() {
