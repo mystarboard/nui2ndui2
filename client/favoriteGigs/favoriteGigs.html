@@ -1,12 +1,24 @@
 <template name="favoriteGigs">
-	<h2>These are my favorite gigs</h2>
-	<ul class="list-unstyled">
-	{{#each favoriteGigs}}
-		{{> showFavoriteGig}}
-	{{/each}}
-	</ul>
+	<div class="row">
+		<h2>These are my favorite gigs</h2>
+		<ul class="list-unstyled">
+			{{#each favoriteGigs}}
+			<div class="col-md-3">
+				{{> showFavoriteGig}}
+			</div>
+			{{/each}}
+		</ul>
+	</div>
 </template>
 
 <template name="showFavoriteGig">
-	<li>{{gigName}}</li>
+	<li><h3>{{gigName}}</h3></li>
+	<li>Date: {{displayDate}}</li>
+	<li>Location: {{location}}</li>
+	<li>Organizer: {{organizer}}</li>
+	<li>{{description}}</li>
+	<li>Submitted by: @{{submitteedByUsername}}</li>
+	<!-- <li>Submitted on: {{submittedDate}}</li> -->
+	<br>
+	<button class="btn btn-primary" id="addToFavoriteGigs">Add to watchlist</button>
 </template>

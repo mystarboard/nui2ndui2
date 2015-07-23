@@ -14,8 +14,19 @@ Template.gigs.helpers({
 
 Template.gigs.events({
 	'click #addToFavoriteGigs' : function(event, tmpl) {
-		var isFavorited, theFavoritedGigId = this._id, theFavoritees = FavoriteGigs.find({gigName: theFavoritedGigId});
-		var options = {gigName: this._id, favoriteeId: Meteor.userId()};
+		var isFavorited, theFavoritedGigId = this._id, theFavoritees = FavoriteGigs.find({theFavoritedGigId: theFavoritedGigId});
+		var options = {
+			gigName: this.name, 
+			favoriteeId: Meteor.userId(),
+			theFavoritedGigId: this._id, 
+			date: this.date, 
+			displayDate: this.displayDate, 
+			formattedDate: this.formattedDate, 
+			location: this.location, 
+			organizer: this.organizer, 
+			description: this.description
+
+		};
 
 		theFavoritees.forEach(function(theFavoritee) {
 			if (theFavoritee.favoriteeId === Meteor.userId()) {

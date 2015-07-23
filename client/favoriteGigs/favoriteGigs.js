@@ -1,6 +1,5 @@
 Template.favoriteGigs.rendered = function() {
 	Deps.autorun( function() {
-		Meteor.subscribe("gigs");
 		Meteor.subscribe("favoriteGigs");
 	});
 }

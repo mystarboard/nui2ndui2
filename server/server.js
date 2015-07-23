@@ -1,8 +1,8 @@
 Meteor.publish("posts", function() {
 	//publish messages just for logged in users
 	if (this.userId) {
-		return Posts.find({}, {
-			sort: { date: -1 },
+		return Posts.find({
+			
 		});
 	}
 	this.ready();
@@ -83,19 +83,21 @@ Meteor.methods({
 
 	'addFavoriteGig' : function(options) {
 		var favoriteGig = {
-			gigName: options.gigName,
-			favoriteeId: options.favoriteeId,
-			favoriteeUsername: Meteor.user().username,
-
+			gigName: options.gigName, 
+			favoriteeId: Meteor.userId(), 
+			theFavoritedGigId: options.theFavoritedGigId, 
+			date: options.date, 
+			displayDate: options.displayDate, 
+			formattedDate: options.formattedDate, 
+			location: options.location, 
+			organizer: options.organizer, 
+			description: options.description
 		}
 		FavoriteGigs.insert(favoriteGig);
 	},
 	'removeFavoriteGig' : function(options) {
 		var favoriteGig = {
-			gigName: options.gigName,
-			favoriteeId: options.favoriteeId,
-			favoriteeusername: Meteor.user().username,
-
+			theFavoritedGigId: options.theFavoritedGigId,
 		}
 		FavoriteGigs.remove(favoriteGig);
 	},
