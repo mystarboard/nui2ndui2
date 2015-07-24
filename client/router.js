@@ -32,4 +32,12 @@ Router.route('/favoriteGigs', function () {
   this.render('favoriteGigs')
 });
 
+Router.route('/userProfile', function () {
+  this.render('userProfile')
+});
+
+Router.route('/updateprofile', function () {
+  this.render('updateProfile')
+});
+
 

@@ -20,6 +20,14 @@ Meteor.publish("favoriteGigs", function() {
 	return FavoriteGigs.find({});
 });
 
+Meteor.publish("userData", function () {
+  if (this.userId) {
+    return Meteor.users.find({_id: this.userId},
+                             {fields: {'tagline': 1, 'description': 1}});
+  } else {
+    this.ready();
+  }
+})
 
 Meteor.methods({
 	// {text:'', owner:'', date:'', parent:''}
@@ -101,6 +109,11 @@ Meteor.methods({
 		}
 		FavoriteGigs.remove(favoriteGig);
 	},
+
+	'updateProfile' : function(userId, tagline, description) {
+		Meteor.users.update({_id:userId}, {$set: { tagline: tagline, description:description}});
+	},
+
 });
 
 

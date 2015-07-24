@@ -1,0 +1,50 @@
+<template name="userProfile">
+	<div class="row">
+
+		<div class="col-md-6">
+			<h1>My Profile</h1>
+			<h5>Username: @{{currentUser.username}}</h5>
+			<h5>Tagline: {{currentUser.tagline}}</h5>
+			<h5>Description: {{currentUser.description}}</h5>
+		</div>
+		<div class="col-md-6">
+			<h1>Update Profile</h1>
+
+			<div class="form">
+				<div class="form-group">
+					<label for="user-tagline">Tagline</label>
+					<input type="text" class="form-control taglineInput" placeholder="Write a nice tagline ..." id="taglineInput">
+				</div>
+
+				<div class="form-group">
+					<label for="user-description">Description</label>
+					<textarea type="text" class="form-control descriptionInput" placeholder="Tell us about yourself ..." id="descriptionInput" rows="5"></textarea>
+				</div>
+				<button class="btn btn-primary" id="updateProfileBtn">Update</button>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="updateProfile">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>Update Profile</h1>
+			<div class="form">
+				<div class="form-group">
+					<label for="user-tagline">Tagline</label>
+					<input type="text" class="form-control" placeholder="Write a nice tagline ..." id="user-tagline">
+				</div>
+
+				<div class="form-group">
+					<label for="user-description">Description</label>
+					<textarea type="text" class="form-control" placeholder="Tell us about yourself ..." id="user-tagline" rows="5"></textarea>
+				</div>
+				<button class="btn btn-primary" id="updateProfileBtn">Update</button>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h1>More Details</h1>
+		</div>
+	</div>
+</template>
