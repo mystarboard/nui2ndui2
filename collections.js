@@ -4,4 +4,4 @@ Likes = new Mongo.Collection('likes');
 Gigs = new Mongo.Collection('gigs');
 FavoriteGigs = new Mongo.Collection('favoriteGigs');
 
-UserProfiles = new Mongo.Collection('userProfiles');
+Friends = new Mongo.Collection('friends');

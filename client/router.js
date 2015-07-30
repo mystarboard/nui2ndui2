@@ -40,4 +40,6 @@ Router.route('/updateprofile', function () {
   this.render('updateProfile')
 });
 
-
+Router.route('/following', function () {
+  this.render('friends')
+});

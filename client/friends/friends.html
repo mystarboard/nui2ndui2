@@ -1,0 +1,27 @@
+<template name="friends">
+	<div class="row">
+		
+		<h1>All users</h1>
+		<h4>Click on the usernames to Follow</h4>
+		<ul class="list-inline">
+		{{#each users}}
+			{{> username}}
+		{{/each}}
+		</ul>
+		<h1><small>Following</small></h1>
+		<h4>Click on the usernames to unfollow</h4>
+		{{> myFriends}}
+	</div>
+</template>
+
+<template name="username">
+		<li><a href="" class="addFriend" id="addFriend">+ @{{username}}</a></li>
+</template>
+
+<template name="myFriends">
+	<ul class="list-inline">
+	{{#each friends}}
+	<li><a href="" class="unFollow" id="unFollow">- @{{friend}}</a></li>
+	{{/each}}
+	</ul>
+</template>

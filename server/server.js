@@ -29,6 +29,15 @@ Meteor.publish("userData", function () {
   }
 })
 
+
+Meteor.publish("allUserData", function() {
+	return Meteor.users.find({});
+});
+
+Meteor.publish("friends", function() {
+	return Friends.find({});
+});
+
 Meteor.methods({
 	// {text:'', owner:'', date:'', parent:''}
 	'addPost' : function(options) {
@@ -114,6 +123,25 @@ Meteor.methods({
 		Meteor.users.update({_id:userId}, {$set: { tagline: tagline, description:description}});
 	},
 
+	//Follow users
+	'addFriend' : function(options) {
+		var nf = {
+			username: options.friender,
+			friend: options.newFriend
+		}
+		Friends.insert(nf);
+		console.log('done');
+	},
+
+	//unFollow
+	'unFollow' : function(options) {
+		var uf = {
+			username: options.username,
+			friend: options.usernameToUnfollow
+		}
+		Friends.remove(uf);
+		console.log('unfollowed');
+	}
 });
 
 

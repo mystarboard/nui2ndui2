@@ -5,10 +5,20 @@ Template.gigs.rendered = function() {
 	});
 }
 
+Session.setDefault('favorited', true)
 
 Template.gigs.helpers({
 	gigs: function () {
 		return Gigs.find({}, { sort: {formattedDate: 1} });
+	},
+});
+
+
+Template.showGig.helpers({
+	addToFavorites: function(){
+		if (Session.get('favorited') == true) {
+			return "Add To Favorites"
+		}
 	},
 });
 
@@ -40,10 +50,13 @@ Template.gigs.events({
 
 		if (!isFavorited) {
 			Meteor.call('addFavoriteGig', options);
-			console.log("it's not favorited yet, i'm savin it");
+			alert("Added to favorites");
+			Session.set('favorited', true);
+
 		} else {
 			Meteor.call('removeFavoriteGig', options);
-			console.log("it's already favorited, ima delete it");
+			Session.set('favorited', false);
+			alert("Removed from favorites");
 		}
 	},
 });
