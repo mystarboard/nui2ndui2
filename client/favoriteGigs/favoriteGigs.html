@@ -1,23 +1,35 @@
 <template name="favoriteGigs">
-	<div class="row">
-		<h2>These are my favorite gigs</h2>
-		<ul class="list-unstyled">
-			{{#each favoriteGigs}}
-			<div class="col-md-3">
-				{{> showFavoriteGig}}
-			</div>
-			{{/each}}
-		</ul>
-	</div>
+	<h2>My gigs watchlist</h2>
+	<hr>
+	<h4>Sort by Genre</h4>
+	<a class="badge">Metal</a>
+	<a class="badge">Punk</a>
+	<a class="badge">Hardcore</a>
+	<a class="badge">Grunge</a>
+	<a class="badge">Rock</a>
+	<a class="badge">Postrock</a>
+	<a class="badge">Acoustic</a>
+	<a class="badge">Alternative</a>
+	<a class="badge">Mainstream</a>
+	<hr>
+	{{#each favoriteGigs}}
+		{{> showFavoriteGig}}
+	{{/each}}
 </template>
 
 <template name="showFavoriteGig">
-	<li><h3>{{gigName}}</h3></li>
-	<li>Date: {{displayDate}}</li>
-	<li>Location: {{location}}</li>
-	<li>Organizer: {{organizer}}</li>
-	<li>{{description}}</li>
-	<!-- <li>Submitted on: {{submittedDate}}</li> -->
-	<br>
-	<button class="btn btn-primary" id="removeFromFavoriteGigs">Remove from favorites</button>
+		<div class="media">
+			<div class="media-heading">
+				<h3>{{ gigName }} <small><a href=""><i class="glyphicon glyphicon-thumbs-up"></i> </a> 35 Likes</small></h3>
+				<h4>{{ displayDate }} <small> by {{ organizer }}</small></h4>
+			</div>
+			<div class="media-body">
+				<div class="media-object" style="text-align: center; padding-top 30px; padding-bottom: 30px;">
+					<img src="{{theFavoritedGigId}}.jpg" alt="" >
+				</div>
+					<p>{{ description }}</p>
+					<button class="btn btn-primary" id="removeFromFavoriteGigs">Remove from favorites</button>
+				</div>
+			<hr>
+		</div>
 </template>

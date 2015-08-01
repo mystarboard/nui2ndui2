@@ -28,6 +28,10 @@ Router.route('/addGig', function () {
   this.render('addGig')
 });
 
+Router.route('/buysell', function () {
+  this.render('buysell')
+});
+
 Router.route('/favoriteGigs', function () {
   this.render('favoriteGigs')
 });
